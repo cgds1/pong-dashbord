@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(270deg,
+    #ff00cc 0%,
+    #333399 50%,
+    #00ffff 100%
+  );
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
