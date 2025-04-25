@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 
-// 1. Nueva interfaz Game
 export interface Game {
   id: string;
   player: string;
   score: number;
-  playedAt: string; // ISO date
+  playedAt: string; // ISO date string
 }
 
-// 2. MOCK DATA con un solo jugador
+// Mock inicial con partidas de ejemplo
 const games: Game[] = [
   {
     id: "1",
@@ -30,17 +29,22 @@ const games: Game[] = [
   },
 ];
 
-// 3. GET → lista de partidas
 export async function GET() {
   return NextResponse.json(games);
 }
 
-// 4. POST → recibe { player, score, playedAt }
 export async function POST(request: Request) {
+  // Recibimos player, score y playedAt en el body
   const body = (await request.json()) as Omit<Game, "id">;
+
+  // Creamos la nueva partida y la agregamos al array
   const created: Game = {
     id: Date.now().toString(),
-    ...body,
+    player: body.player,
+    score: body.score,
+    playedAt: body.playedAt,
   };
+  games.push(created);
+
   return NextResponse.json({ success: true, game: created });
 }
