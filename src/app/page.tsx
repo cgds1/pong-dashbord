@@ -1,15 +1,19 @@
-// src/app/page.tsx
 export default function HomePage() {
-  const links = ["Home", "About Us", "Portfolio", "Contact Us"];
+  const links = [
+    { label: "Home", href: "/" },
+    { label: "Partidas", href: "/games" },
+    { label: "Registrar Partida", href: "/log-game" },
+  ];
+
 
   return (
     <main className="min-h-screen flex flex-col text-white">
       {/* Navegación sin logo */}
       <nav className="w-full max-w-6xl mx-auto flex justify-end py-6 px-4">
         <ul className="flex space-x-8 uppercase text-sm">
-          {links.map((link) => (
-            <li key={link} className="hover:underline cursor-pointer">
-              {link}
+          {links.map(({ label, href }) => (
+            <li key={href}>
+              <a href={href} className="hover:underline">{label}</a>
             </li>
           ))}
         </ul>
