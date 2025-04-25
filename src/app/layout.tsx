@@ -1,34 +1,16 @@
-import './globals.css';
-import { Press_Start_2P } from 'next/font/google';
-import { ReactNode } from 'react';
-
-const arcade = Press_Start_2P({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-arcade',
-});
+// src/app/layout.tsx
+import "@/app/globals.css";
+import type { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Pong Dashboard',
+  title: "Pong Dashboard",
+  description: "Retro gaming dashboard built with Next.js",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${arcade.className} antialiased 
-          flex items-center justify-center`}
-      >
-
-<nav className="absolute top-4 right-4 flex gap-4">
-  <a href="/games" className="text-white underline">
-    Partidas
-  </a>
-  <a href="/register-game" className="text-white underline">
-    Registrar Partida
-  </a>
-</nav>
-
+    <html lang="es">
+      <body className="overflow-x-hidden">
         {children}
       </body>
     </html>

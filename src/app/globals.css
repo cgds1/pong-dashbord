@@ -1,22 +1,27 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-html, body, #__next {
-  height: 100%;
-}
-
+html,
 body {
+  padding: 0;
+  margin: 0;
   font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(270deg,
-    #ff00cc 0%,
-    #333399 50%,
-    #00ffff 100%
-  );
-  background-size: 600% 600%;
-  animation: gradientBG 20s ease infinite;
 }
 
+/* Fondo degradado más sutil y oscuro */
+body {
+  background: linear-gradient(135deg,
+    #1e1e2f 0%,
+    #333399 50%,
+    #00ffff 100%  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Keyframes ajustados */
 @keyframes gradientBG {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+@import "tailwindcss";
